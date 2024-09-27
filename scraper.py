@@ -7,7 +7,7 @@ def fetch_recipe_links():
     soup = BeautifulSoup(r.text, 'html.parser')
     table = soup.find('div', {'class': 'recipe__nav--view'})
     links = [a_tag['href'] for a_tag in table.find_all('a', href=True)]
-    return links[:5]  # Limit to the first 5 links
+    return links
 
 def scrape_recipe_data(link):
     link_r = requests.get(URLL + link)
